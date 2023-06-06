@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://nsi_test.com/tri_ter/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>tri_ter - nsi_test</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "tri_ter";
+        var mkdocs_page_input_path = "tri_ter.md";
+        var mkdocs_page_url = "/tri_ter/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> nsi_test
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">tri_ter</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#consigne">Consigne</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#liste-fonctions">Liste fonctions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implementation">Implémentation</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Test/">Test</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../triCrepe_p1.tex">triCrepe_p1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">nsi_test</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>tri_ter</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="principe">Principe</h1>
+<p>On dispose d'un empilement de crêpes que l'on souhaite les ranger dans l'ordre croissant, la crêpe la plus petite en haut.</p>
+<p>Pour celà, vous ne disposez que d'un seul type opération : glisser une spatule sous une crêpe et retourner tout l'empilement de crêpes se trouvant sur votre spatule.</p>
+<h2 id="consigne">Consigne</h2>
+<p>Nous utiliserons une liste pour représenter notre empilement de crêpes. Le sommet de l'empilement sera le premier élément de la liste. Les crêpes sont représentées par des nombres, plus son nombre est grand plus la crêpe est grande.</p>
+<h2 id="liste-fonctions">Liste fonctions</h2>
+<ul>
+<li><code>retourner_crepe( empilement : list) , n : (int)</code> : retourne n crêpe.</li>
+<li><code>plus_grande_crepe(empilement : list, n : int) -&gt; int</code> : Cherche la plus grande crepe dans l'empilement.</li>
+<li><code>placer_crepe_au_sommet(empilement : list, n : int) -&gt; int</code> : place la crêpe au sommet.</li>
+<li><code>tri_crepe(empilement : list)</code> : réalise le tri crêpe</li>
+</ul>
+<h2 id="implementation">Implémentation</h2>
+<p>Commençons par la fonction <code>retourner_crepe( empilement : list) , n : (int)</code> qui prend un empilement de crepe, un entier n représentant l'emplacement de la spatule et retourne ainsi les crêpes sur la spatule</p>
+<pre><code class="language-python">def retourner_crepe(empilement,n):
+    &quot;&quot;&quot;
+    Retourne les n crêpes du haut
+    :param empilement: (list) liste représentant l'empilement de crêpes
+    :param n: (int) nombre de crêpes à retourner
+    :return: None
+    : Examples :
+    &gt;&gt;&gt; l = [5, 3, 4, 7, 9, 8, 1, 2]
+    &gt;&gt;&gt; retourner_crepe(l,4)
+    &gt;&gt;&gt; l
+    &gt;&gt;&gt; [7, 4, 3, 5, 9, 8, 1, 2]
+    &quot;&quot;&quot;
+    pass
+</code></pre>
+<p>Désormais, nous allons rechercher l'indice de la plus grande crêpe parmis un certain nombres. La fonction <code>plus_grande_crepe(empilement : list, n : int) -&gt; int</code> qui prend un empilement de crepe, un entier n représentant la tranche parmis laquelle on recherche la plus grande crêpe. Cette fonction renverra l'indice dans la liste de la plus grande crêpe.</p>
+<pre><code class="language-python">def plus_grande_crepe(empilement,n):
+    &quot;&quot;&quot;
+    Renvoie l'indice de la plus grande crêpe parmis les n premières
+    :param empilement: (list) liste représentant l'empilement de crêpes
+    :param n: (int) nombre de crêpes
+    :return: (int) indice de la plus grande crêpe
+    : Examples :
+    &gt;&gt;&gt; l = [5, 3, 4, 7, 9, 8, 1, 2]
+    &gt;&gt;&gt; plus_grande_crepe(l,4)
+    &gt;&gt;&gt; 3
+    &quot;&quot;&quot;
+    pass
+</code></pre>
+<p>Ensuite, nous allons placer une crepe au sommet. La fonction <code>placer_crepe_au_sommet(empilement : list, n : int) -&gt; int</code> qui prend un empilement de crepe, un entier n représentant le nombre de crêpe à retourner. </p>
+<p>Une méthode serait de chercher la plus grande crêpes parmis les n premières, de retourner toutes les jusqu'à la plus grande, puis de retourner toutes les crêpes.</p>
+<pre><code class="language-python">def placer_crepe_au_sommet(empilement,n):
+    &quot;&quot;&quot;
+    Place la plus grande crêpe au sommet de la pile de crêpe
+    Repère la plus grande crêpe parmi les n premières
+    Retourne l'empilement de crêpes en placant la spatule sous cette plus grande crêpe
+    Puis retourne les n crêpes du sommet
+    :param empilement: (list) liste représentant l'empilement de crêpes
+    :param n: (int) nombre de crêpes à retourner
+    :return: None
+    : Examples :
+    &gt;&gt;&gt; l = [5, 3, 4, 7, 9, 8, 1, 2]
+    &gt;&gt;&gt; placer_crepe_au_sommet(l,8)
+    &gt;&gt;&gt; l
+    [2, 1, 8, 5, 3, 4, 7, 9]
+    &quot;&quot;&quot;
+    pass
+</code></pre>
+<p>Il est temps d'implémenter l'algorithme <code>tri_crepe(empilement : list)</code> .</p>
+<pre><code class="language-python">def tri_crepe(empilement):
+    &quot;&quot;&quot;
+    Effectue le tri crêpe
+    :param empilement: (list) liste représentant l'empilement de crêpes
+    :return: None
+    &quot;&quot;&quot;
+    pass
+</code></pre>
+<p><strong>Félicitations</strong>, vous avez implémenter le tri crêpe !</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Test/" class="btn btn-neutral float-right" title="Test">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Test/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
