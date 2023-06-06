@@ -1,0 +1,10 @@
+site_name: nsi_test
+site_url: https://nsi_test.com/
+
+nav:
+    - Home: index.md
+    - tri_ter: tri_ter.md
+    - Test: Test.md
+    - triCrepe_p1: triCrepe_p1.tex
+
+theme: readthedocs
